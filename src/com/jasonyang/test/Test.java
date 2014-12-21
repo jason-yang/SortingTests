@@ -1,9 +1,6 @@
 package com.jasonyang.test;
 
-import com.jasonyang.sort.BubbleSort;
-import com.jasonyang.sort.InsertionSort;
-import com.jasonyang.sort.SelectionSort;
-import com.jasonyang.sort.Sort;
+import com.jasonyang.sort.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,50 +11,6 @@ public class Test<E extends Comparable<? super E>> {
 	private static int ITERATIONS = 1000;
 	private static int ARRAY_SIZE = 100;
 
-	//	public void siftDown(List<E> arr, int start, int end) {
-//		int root = start;
-//
-//		while ((root * 2 + 1) <= end) { // While root has at least 1 child
-//			int left = root * 2 + 1;   // Left child
-//			int right = left + 1;
-//			int swap = root;            // Keep track of child to swap with
-//
-//			if (arr.get(swap).compareTo(arr.get(left)) < 0) {
-//				swap = left;
-//			}
-//			// If there is a right child and that child is greater
-//			if (right < end && arr.get(swap).compareTo(arr.get(right)) < 0) {
-//				swap = right;
-//			}
-//			if (swap == root) {
-//				// The root holds the largest element. We are done
-//				return;
-//			} else {
-//				swap(arr, root, swap);
-//				root = swap;
-//			}
-//		}
-//	}
-//
-//	public void heapify(List<E> arr) {
-//		for (int start = (int) Math.floor((arr.size() - 2) / 2); start >= 0; start--) {
-//			siftDown(arr, start, arr.size() - 1);
-//		}
-//	}
-//
-//	public List<E> heapSort(List<E> arr) {
-//		heapify(arr);
-//
-//		int end = arr.size() - 1;
-//		while (end > 0) {
-//			swap(arr, end, 0);
-//			end--;
-//			siftDown(arr, 0, end);
-//		}
-//
-//		return null;
-//	}
-//
 //	public List<E> quickSort(List<E> arr) {
 //		if (arr.isEmpty()) {
 //			return arr;
@@ -140,7 +93,7 @@ public class Test<E extends Comparable<? super E>> {
 
 				if (!validate(list)) {
 					System.out.println(name + " did not sort properly: " + list);
-					break;
+					return;
 				}
 			}
 
@@ -170,6 +123,6 @@ public class Test<E extends Comparable<? super E>> {
 		test(BubbleSort.class, "Bubble Sort");
 		test(SelectionSort.class, "Selection Sort");
 		test(InsertionSort.class, "Insertion Sort");
-
+		test(HeapSort.class, "Heap Sort");
 	}
 }
